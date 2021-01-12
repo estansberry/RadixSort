@@ -1,9 +1,4 @@
 public class Radix{
-  public static void main(String args[]){
-    System.out.println(length(0));
-    System.out.println(length(12345));
-    System.out.println(length(123));
-  }
   public static int nth(int n, int col){
     int newnum = 0;
     for(int i = 0; i <= col; i++){
@@ -12,6 +7,7 @@ public class Radix{
     }return(newnum);
   }
   public static int length(int n){
+    n = Math.abs(n);
     int len = 0;
     if(n == 0){
       return(1);
