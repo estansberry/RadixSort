@@ -1,8 +1,8 @@
 public class Radix{
   public static void main(String args[]){
-    System.out.println(nth(123,0));
-    System.out.println(nth(12345,1));
-    System.out.println(nth(123,2));
+    System.out.println(length(0));
+    System.out.println(length(12345));
+    System.out.println(length(123));
   }
   public static int nth(int n, int col){
     int newnum = 0;
@@ -12,7 +12,14 @@ public class Radix{
     }return(newnum);
   }
   public static int length(int n){
-    return(n);
+    int len = 0;
+    if(n == 0){
+      return(1);
+    }
+    while(n > 0){
+      n = n /10;
+      len += 1;
+    }return(len);
   }
 
 }
