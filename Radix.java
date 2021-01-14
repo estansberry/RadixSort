@@ -1,7 +1,7 @@
 public class Radix{
   public static int nth(int n, int col){
     n = Math.abs(n);
-    if(col != 0 && n/(10^(col - 1)) < 1){
+    if(col != 0 & n/(10^(col - 1)) < 1){
       return(0);
     }
     int newnum = 0;
@@ -28,15 +28,19 @@ public class Radix{
   }
 
   public static void radixSortSimple(SortableLinkedList data){
-    int largest = 0;
-    while(data.size() > 0){
-      if(length(data.get(0)) > largest){
-        largest = length(data.get(0));
-      }data.remove(0);
-    }SortableLinkedList[] bucket = new SortableLinkedList[10];
+    int largest = 1;
+    SortableLinkedList[] bucket = new SortableLinkedList[10];
     for(int i = 0; i < 10; i++){
       bucket[i] = new SortableLinkedList();
     }for(int i = 0; i < largest; i ++){
+      if(i == 0){
+        while(data.size() > 0){
+          if(length(data.get(0)) > largest){
+            largest = length(data.get(0));
+          }bucket[0].add(data.get(0));
+          data.remove(0);
+        }
+      }merge(data, bucket);
       while(data.size() > 0){
         int val = data.get(0);
         int digit = nth(val, i);
@@ -47,18 +51,22 @@ public class Radix{
   }
 
   public static void radixSort(SortableLinkedList data){
-    int largest = 0;
-    while(data.size() > 0){
-      if(length(data.get(0)) > largest){
-        largest = length(data.get(0));
-      }data.remove(0);
-    }SortableLinkedList[] positives = new SortableLinkedList[10];
+    int largest = 1;
+    SortableLinkedList[] positives = new SortableLinkedList[10];
     for(int i = 0; i < 10; i++){
       positives[i] = new SortableLinkedList();
     }SortableLinkedList[] negatives = new SortableLinkedList[10];
     for(int i = 0; i < 10; i++){
       negatives[i] = new SortableLinkedList();
     }for(int i = 0; i < largest; i ++){
+      if(i == 0){
+        while(data.size() > 0){
+          if(length(data.get(0)) > largest){
+            largest = length(data.get(0));
+          }positives[0].add(data.get(0));
+          data.remove(0);
+        }
+      }merge(data, positives);
       while(data.size() > 0){
         int val = data.get(0);
         int digit = nth(val, i);
