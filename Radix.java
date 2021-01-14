@@ -32,10 +32,10 @@ public class Radix{
 
   public static void radixSortSimple(SortableLinkedList data){
     int largest = 0;
-    for(int i = 0; i < data.size(); i ++){
-      if(length(data.get(i)) > largest){
-        largest = length(data.get(i));
-      }
+    while(data.size() > 0){
+      if(length(data.get(0)) > largest){
+        largest = length(data.get(0));
+      }data.remove(0);
     }SortableLinkedList[] bucket = new SortableLinkedList[10];
     for(int i = 0; i < 10; i++){
       bucket[i] = new SortableLinkedList();
@@ -51,10 +51,10 @@ public class Radix{
 
   public static void radixSort(SortableLinkedList data){
     int largest = 0;
-    for(int i = 0; i < data.size(); i ++){
-      if(length(data.get(i)) > largest){
-        largest = length(data.get(i));
-      }
+    while(data.size() > 0){
+      if(length(data.get(0)) > largest){
+        largest = length(data.get(0));
+      }data.remove(0);
     }SortableLinkedList[] positives = new SortableLinkedList[10];
     for(int i = 0; i < 10; i++){
       positives[i] = new SortableLinkedList();
