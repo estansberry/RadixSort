@@ -1,7 +1,4 @@
 public class Radix{
-  public static void main(String args[]){
-    MyLinkedList newlist = new MyLinkedList();
-  }
   public static int nth(int n, int col){
     n = Math.abs(n);
     if(col != 0 && n/(10^(col - 1)) < 1){
